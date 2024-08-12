@@ -25,13 +25,15 @@ private val columnList = listOf(
     returnDeadline
 )
 
+//BookWithRentalMapper関数を使用し、クエリを生成して実行する拡張関数を定義したファイル
+//.BookDynamicSqlSupportとRentalDynamicSqlSupportのオブジェクトに定義されているフィールドを参照しListに
 fun BookWithRentalMapper.select(): List<BookWithRentalRecord> {
     val selectStatement = select(columnList).from(Book, "b") {
         leftJoin(Rental, "r") {
             on(Book.id, equalTo(Rental.bookId))
         }
     }
-    return selectMany(selectStatement)
+    return selectMany(selectStatement)//
 }
 
 fun BookWithRentalMapper.selectByPrimaryKey(id_: Long): BookWithRentalRecord? {
@@ -41,5 +43,11 @@ fun BookWithRentalMapper.selectByPrimaryKey(id_: Long): BookWithRentalRecord? {
         }
         where(id, isEqualTo(id_))
     }
+
     return selectOne(selectStatement)
 }
+
+/*
+役割
+BookWithRentalMapperに対する拡張関数で、動的にSQLクエリを作成して実行します。
+ */

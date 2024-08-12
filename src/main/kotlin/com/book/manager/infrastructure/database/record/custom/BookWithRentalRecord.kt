@@ -12,3 +12,8 @@ data class BookWithRentalRecord(
     var rentalDatetime: LocalDateTime? = null,
     var returnDeadline: LocalDateTime? = null
 )
+
+/*
+データベースから取得された書籍とレンタル情報を格納するデータクラス。
+BookWithRentalMapperで定義された結果マッピングで使用。
+ */
