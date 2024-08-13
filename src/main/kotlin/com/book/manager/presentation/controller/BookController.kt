@@ -4,9 +4,12 @@ import com.book.manager.application.service.BookService
 import com.book.manager.presentation.form.BookInfo
 import com.book.manager.presentation.form.GetBookDetailResponse
 import com.book.manager.presentation.form.GetBookListResponse
+import com.book.manager.presentation.form.UpdateBookRequest
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -29,6 +32,9 @@ class BookController(
         val book = bookService.getDetail(bookId)
         return GetBookDetailResponse(book)
     }
+
+
+
 }
 
 /*
