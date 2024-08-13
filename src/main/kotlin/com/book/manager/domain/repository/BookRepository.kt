@@ -7,6 +7,7 @@ import java.time.LocalDate
 interface BookRepository {
     fun findAllWithRental(): List<BookWithRental>//BookWithRentalクラスのリストを返すだけ
     fun findWithRental(id: Long): BookWithRental?
+    fun register(book: Book)
 }
 
 /*

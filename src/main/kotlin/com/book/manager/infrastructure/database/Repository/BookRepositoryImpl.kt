@@ -7,6 +7,7 @@ import com.book.manager.domain.repository.BookRepository
 import com.book.manager.infrastructure.database.mapper.BookMapper
 import com.book.manager.infrastructure.database.mapper.custom.BookWithRentalMapper
 import com.book.manager.infrastructure.database.mapper.custom.select
+import com.book.manager.infrastructure.database.mapper.insert;
 import com.book.manager.infrastructure.database.mapper.custom.selectByPrimaryKey
 //import com.book.manager.infrastructure.database.mapper.custom.selectByPrimaryKey
 import com.book.manager.infrastructure.database.mapper.deleteByPrimaryKey
@@ -33,6 +34,11 @@ class BookRepositoryImpl(
         return bookWithRentalMapper.selectByPrimaryKey(id)?.let { toModel(it) }
     }
 
+    override fun register(book: Book) {
+        bookMapper.insert(toRecord(book))
+    }
+
+
     //BookWithRentalRecordからBookWithRentalへの変換
     private fun toModel(record: BookWithRentalRecord): BookWithRental {
         val book = Book(
@@ -50,6 +56,10 @@ class BookRepositoryImpl(
             )
         }
         return BookWithRental(book, rental)
+    }
+
+    private fun toRecord(model: Book): BookRecord {
+        return BookRecord(model.id, model.title, model.author, model.releaseDate)
     }
 }
 
