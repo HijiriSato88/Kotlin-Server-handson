@@ -16,5 +16,4 @@ class BookService(
     fun getDetail(bookId: Long): BookWithRental {
         return bookRepository.findWithRental(bookId) ?: throw IllegalArgumentException("存在しない書籍ID: $bookId")
     }
-
 }

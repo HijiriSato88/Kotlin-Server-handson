@@ -27,6 +27,4 @@ class AdminBookService(
         bookRepository.findWithRental(bookId) ?: throw IllegalArgumentException("存在しない書籍ID: $bookId")
         bookRepository.delete(bookId)
     }
-
-
 }
