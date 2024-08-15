@@ -9,13 +9,6 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 class HttpSessionConfig {
     @Bean
     fun connectionFactory(): JedisConnectionFactory {
-        /*
-//        val redisStandaloneConfiguration = RedisStandaloneConfiguration().also {
-//            it.hostName = "kotlin-redis"
-//            it.port = 16379
-//        }
-//        return JedisConnectionFactory(redisStandaloneConfiguration)
-         */
         return JedisConnectionFactory()
     }
 }
