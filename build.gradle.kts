@@ -26,6 +26,7 @@ dependencies {
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
+	implementation("org.springframework.boot:spring-boot-starter-aop")
 	implementation("org.springframework.session:spring-session-data-redis")
 	implementation("redis.clients:jedis")
 	implementation("org.springframework.boot:spring-boot-starter-security")
